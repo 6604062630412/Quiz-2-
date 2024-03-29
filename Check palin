@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int checkpalin(char *t);
+
+int main(){
+    int n;
+    int i;
+    scanf("%d\n",&n);
+    char text[n][100];
+    char temp[100];
+    for(i = 0;i<n;i++){
+        scanf("%s",text[i]);
+    }
+
+    for(i = 0;i<n;i++){
+        strcpy(temp,text[i]);
+        if(checkpalin(temp)){
+            printf("%s is palindome\n",temp);
+        }
+        else
+            printf("%s is not palindome\n",temp);
+    }
+
+}
+
+int checkpalin(char *t){
+    int len = strlen(t);
+    int middle = len / 2;
+    int i;
+    for(i = 0;i<middle;i++){
+        if(t[i] != t[len-i-1]){
+            return 0;
+        }
+    }
+    return 1;
+}
